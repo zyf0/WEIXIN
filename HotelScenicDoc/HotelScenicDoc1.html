@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+        }
+        @media print {
+            body {
+                display: none;
+            }
+        }    </style>
+    <script>
+    function iEsc(){ return false; }
+    function iRec(){ return true; }
+    function DisableKeys() {
+        //if (event.ctrlKey || event.shiftKey || event.altKey || event.keyCode == 123) {
+        if (event.keyCode != 116) {
+            event.keyCode = 0;
+            event.returnvalue = false;
+            window.event.returnValue = false;
+            iEsc();
+        }
+    }
+    document.ondragstart=iEsc;
+    document.onkeydown=DisableKeys;
+    document.oncontextmenu=iEsc;
+    if (typeof document.onselectstart != "undefined")
+        document.onselectstart = iEsc;
+    else {//qsyz.net
+        document.onmousedown = iEsc;
+        document.onmouseup = iRec;
+    }
+    function DisableRightClick(www_qsyz_net){
+        if (window.Event) {
+            if (www_qsyz_net.which == 2 || www_qsyz_net.which == 3)
+                iEsc();
+        }
+        else
+            if (event.button == 2 || event.button == 3) {
+                event.cancelBubble = true
+                event.returnValue = false;
+                iEsc();
+            }
+    }
+    </script>
+</head>
+
+<body>
+    <div style="width:100%;text-align:center;"><img style="text-align:center" src="HotelScenicDoc1.png" /></div>
+</body>
+
+
+</html>
